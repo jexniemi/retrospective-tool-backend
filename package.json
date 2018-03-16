@@ -1,0 +1,22 @@
+{
+  "name": "retrospective-tool-backend",
+  "version": "1.0.0",
+  "description": "Node.js backend for retrospective tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jexniemi/retrospective-tool-backend.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "jexniemi, woltsu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jexniemi/retrospective-tool-backend/issues"
+  },
+  "homepage": "https://github.com/jexniemi/retrospective-tool-backend#readme"
+}
