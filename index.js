@@ -7,14 +7,17 @@ const mongoose = require('mongoose')
 const config = require('./utils/config')
 
 
-// Models:
-const Example = require('./models/example')
+// Middleware
+app.use(cors())
+app.use(bodyParser.json())
 
 
-// Controllers:
+// Routers
 const examplesRouter = require('./controllers/examples')
+app.use('/api/examples', examplesRouter)
 
 
+// Database connection
 mongoose
   .connect(config.mongoUrl)
   .then( () => {
@@ -24,13 +27,8 @@ mongoose
     console.log(err)
   })
 
-// app.use
-app.use(cors())
-app.use(bodyParser.json())
 
-// app.use routes
-app.use('/api/examples', examplesRouter)
-
+// Initialize server
 const PORT = config.port
 const server = http.createServer(app)
 server.listen(config.port, () => {
