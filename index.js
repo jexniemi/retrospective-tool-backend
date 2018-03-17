@@ -6,27 +6,23 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./utils/config')
 
-
 // Middleware
 app.use(cors())
 app.use(bodyParser.json())
-
 
 // Routers
 const examplesRouter = require('./controllers/examples')
 app.use('/api/examples', examplesRouter)
 
-
 // Database connection
 mongoose
   .connect(config.mongoUrl)
-  .then( () => {
+  .then(() => {
     console.log('connected to database', config.mongoUrl)
   })
-  .catch( err => {
+  .catch(err => {
     console.log(err)
   })
-
 
 // Initialize server
 const PORT = config.port

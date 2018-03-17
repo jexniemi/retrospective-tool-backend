@@ -9,17 +9,12 @@ examplesRouter.get('/', async (request, response) => {
 
 examplesRouter.post('/', async (request, response) => {
 	try {
-        const example = new Example(request.body)
-
-        example
-            .save()
-            .then(result => {
-                response.status(201).json(result)
-            })
+    const example = new Example(request.body)
+    const result = await example.save();
+    return response.status(201).json(result);
 	} catch (exception) {
 		console.log(exception)
 	}
 })
-
 
 module.exports = examplesRouter
