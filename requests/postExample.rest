@@ -1,0 +1,8 @@
+POST http://localhost:3001/api/examples
+content-type: application/json
+
+{
+    "content": "hello world"
+}
+
+// For VSCode extension REST Client

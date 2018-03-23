@@ -1,0 +1,35 @@
+{
+  "name": "retrospective-tool-backend",
+  "version": "1.0.0",
+  "description": "Node.js backend for retrospective tool",
+  "main": "index.js",
+  "scripts": {
+    "watch": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jexniemi/retrospective-tool-backend.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "jexniemi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jexniemi/retrospective-tool-backend/issues"
+  },
+  "homepage": "https://github.com/jexniemi/retrospective-tool-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.10"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "nodemon": "^1.17.2"
+  }
+}
