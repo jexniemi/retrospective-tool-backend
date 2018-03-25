@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const projectsRouter = require('express').Router();
 const Project = require('../models/project');
 
