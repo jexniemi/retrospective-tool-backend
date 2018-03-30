@@ -9,7 +9,7 @@ projectsRouter.get('/', async (req, res) => {
 
 projectsRouter.post('/', async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name } = req.body;
     let password = req.body.password;
     if (!name || !name.trim()) {
       return res.status(400).json({ error: 'Name is missing!' });
@@ -21,8 +21,8 @@ projectsRouter.post('/', async (req, res) => {
     }
 
     if (password && password.trim()) {
-      const saltRounds = 10
-      password = await bcrypt.hash(password, saltRounds)
+      const saltRounds = 10;
+      password = await bcrypt.hash(password, saltRounds);
     }
 
     const newProject = await new Project({ name, password }).save();
