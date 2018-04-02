@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 const projectsRouter = require('express').Router();
 const Project = require('../models/project');
 
@@ -46,14 +46,14 @@ projectsRouter.post('/login', async (req, res) => {
     if (foundProject.password) {
       const passwordCorrect = password ? await bcrypt.compare(password, foundProject.password) : false;
       if (!passwordCorrect) {
-        return res.status(401).json({ error: `Invalid password` });
+        return res.status(401).json({ error: 'Invalid password' });
       }
     }
 
     const tokenFromProject = {
       name,
       id: foundProject._id
-    }
+    };
 
     const token = jwt.sign(tokenFromProject, process.env.SECRET);
     return res.status(200).json({ token, name });
