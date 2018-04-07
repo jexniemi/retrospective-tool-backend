@@ -17,6 +17,9 @@ app.use('/api/examples', examplesRouter);
 const projectsRouter = require('./controllers/projects');
 app.use('/api/projects', projectsRouter);
 
+const commentsRouter = require('./controllers/comments');
+app.use('/api/comments', commentsRouter);
+
 // Database connection
 mongoose
   .connect(config.mongoUrl)
