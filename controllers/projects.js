@@ -68,7 +68,7 @@ projectsRouter.get('/:name', async (req, res) => {
     const { token } = req.body;
 
     const decodedToken = jwt.decode(token, process.env.SECRET);
-    if (!token || !decodedToken.name) {
+    if (!decodedToken || !decodedToken.name) {
       return res.status(401).json({ error: 'Token missing or invalid' });
     } else if (decodedToken.name !== name) {
       return res.status(403).json({ error: 'Token doesn\'t match with this project' });
