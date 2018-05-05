@@ -21,9 +21,6 @@ app.use((req, res, next) => {
 });
 
 // Routers
-const examplesRouter = require('./controllers/examples');
-app.use('/api/examples', examplesRouter);
-
 const projectsRouter = require('./controllers/projects');
 app.use('/api/projects', projectsRouter);
 
