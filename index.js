@@ -57,6 +57,10 @@ io.of('/api/projects').on('connection', socket => {
   socket.on('update', (data) => {
     socket.to(name).broadcast.emit('update comment', data);
   });
+
+  socket.on('remove', (data) => {
+    socket.to(name).broadcast.emit('remove comment', data);
+  });
 });
 
 server.on('close', () => {
