@@ -3,11 +3,6 @@ const jwt = require('jsonwebtoken');
 const projectsRouter = require('express').Router();
 const Project = require('../models/project');
 
-projectsRouter.get('/', async (req, res) => {
-  const projects = await Project.find({}).populate('comments');
-  res.status(200).json(projects);
-});
-
 projectsRouter.post('/', async (req, res) => {
   try {
     const { name } = req.body;

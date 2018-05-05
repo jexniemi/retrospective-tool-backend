@@ -4,12 +4,6 @@ const Comment = require('../models/comment');
 const Project = require('../models/project');
 const mongoose = require('mongoose');
 
-commentsRouter.get('/', async (request, response) => {
-  const comments = await Comment
-    .find({}).populate('project');
-  response.json(comments);
-});
-
 commentsRouter.post('/', async (request, response) => {
   try {
     const { content, creator, token } = request.body;

@@ -30,7 +30,8 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.0",
-    "mongoose": "^5.0.10"
+    "mongoose": "^5.0.10",
+    "socket.io": "^2.1.0"
   },
   "devDependencies": {
     "cross-env": "^5.1.4",
