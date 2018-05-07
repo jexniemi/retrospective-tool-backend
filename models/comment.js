@@ -5,6 +5,7 @@ const commentSchema = new mongoose.Schema({
   creator: String,
   time: { type: Date, default: Date.now },
   important: { type: Boolean, default: false },
+  type: String,
   project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project' }
 });
 

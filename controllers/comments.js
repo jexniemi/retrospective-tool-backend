@@ -7,7 +7,7 @@ const moment = require('moment');
 
 commentsRouter.post('/', async (request, response) => {
   try {
-    const { content, creator, token } = request.body;
+    const { content, creator, type, token } = request.body;
     const decodedToken = jwt.verify(token, process.env.SECRET);
     if (!token || !decodedToken.name) {
       return response.status(401).json({ error: 'Token missing or invalid' });
@@ -22,7 +22,12 @@ commentsRouter.post('/', async (request, response) => {
       return response.status(400).json({ error: 'No such project!' });
     }
 
-    const comment = new Comment({ content, creator, project: foundProject._id });
+    const types = ['default', 'start', 'continue', 'stop'];
+    if (!types.includes(type)) {
+      return response.status(400).json({ error: 'No such type!' });
+    }
+
+    const comment = new Comment({ content, creator, project: foundProject._id, type: type || 'default' });
     foundProject.comments = foundProject.comments.concat(comment._id);
     await foundProject.save();
     const result = await comment.save();
